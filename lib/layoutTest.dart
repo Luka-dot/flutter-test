@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
         ),
         body: SafeArea(
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Container(
                 color: Colors.blue,
@@ -32,13 +32,29 @@ class MyApp extends StatelessWidget {
               ),
               Container(
                 color: Colors.amber,
-                width: 150.0,
+                width: 260.0,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    ElevatedButton(
-                      onPressed: () {},
-                      child: Text("but TWO"),
+                    CircleAvatar(
+                      radius: 50.0,
+                      backgroundColor: Colors.white,
+                      backgroundImage: AssetImage('assets/avatar1.png'),
+                    ),
+                    Text('Bob "the" Builder',
+                        style: TextStyle(
+                          color: Colors.blueGrey,
+                          fontSize: 33.0,
+                          fontWeight: FontWeight.w900,
+                          fontFamily: 'Lobster',
+                        )),
+                    Text(
+                      'Im the BEST',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 30,
+                        fontFamily: 'SansPro',
+                      ),
                     ),
                   ],
                 ),
