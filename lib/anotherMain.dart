@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -16,21 +17,35 @@ class MyApp extends StatelessWidget {
         ),
         body: SafeArea(
           child: Container(
-            height: 100.0,
-            width: 150.0,
+            height: 400.0,
+            width: 180.0,
             margin: EdgeInsets.fromLTRB(10.0, 10.0, 0, 0),
             color: Colors.yellow,
-            child: Column(
-              children: [
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                      primary: Colors.red, onPrimary: Colors.black),
-                  child: Text('Button ONE'),
-                  onPressed: () {
-                    print('button pressed!');
-                  },
-                ),
-              ],
+            child: Container(
+              child: Column(
+                children: <Widget>[
+                  Container(
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          primary: Colors.red, onPrimary: Colors.black),
+                      child: Text('Button ONE'),
+                      onPressed: () {
+                        print('button pressed!');
+                      },
+                    ),
+                  ),
+                  Container(
+                    color: Colors.white,
+                    width: 140,
+                    child: Column(
+                      children: [
+                        ElevatedButton(
+                            onPressed: () {}, child: Text('Button TWO!'))
+                      ],
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ),
