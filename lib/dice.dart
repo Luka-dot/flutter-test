@@ -16,7 +16,19 @@ void main() {
   );
 }
 
-class DicePage extends StatelessWidget {
+class DicePage extends StatefulWidget {
+  const DicePage({Key? key}) : super(key: key);
+
+  @override
+  _DicePageState createState() => _DicePageState();
+}
+
+class _DicePageState extends State<DicePage> {
+// by moving variable up here before build() this will var will be created
+// only once. If that is inside build it will be recreating every time.
+  int leftDiceNumber = 1;
+  int rightDiceNumber = 1;
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -25,9 +37,11 @@ class DicePage extends StatelessWidget {
           Expanded(
             child: TextButton(
               onPressed: () {
-                print('button fired');
+                setState(() {
+                  leftDiceNumber = 5;
+                });
               },
-              child: Image.asset('images/dice1.png'),
+              child: Image.asset('images/dice$leftDiceNumber.png'),
             ),
           ),
           Expanded(
@@ -35,7 +49,7 @@ class DicePage extends StatelessWidget {
               onPressed: () {
                 print('2nd button');
               },
-              child: Image.asset('images/dice2.png'),
+              child: Image.asset('images/dice$rightDiceNumber.png'),
             ),
           ),
         ],
@@ -43,4 +57,3 @@ class DicePage extends StatelessWidget {
     );
   }
 }
-// test
