@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 
 void main() {
   runApp(MyApp());
@@ -16,8 +15,9 @@ class MyApp extends StatelessWidget {
           backgroundColor: Colors.deepOrange,
         ),
         body: SafeArea(
-          child: Row(
+          child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Container(
                 color: Colors.blue,
@@ -30,12 +30,14 @@ class MyApp extends StatelessWidget {
                   ],
                 ),
               ),
-              Container(
+              Card(
                 color: Colors.amber,
-                width: 260.0,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
+                    Padding(
+                      padding: EdgeInsets.all(8.0),
+                    ),
                     CircleAvatar(
                       radius: 50.0,
                       backgroundColor: Colors.white,
@@ -49,11 +51,71 @@ class MyApp extends StatelessWidget {
                           fontFamily: 'Lobster',
                         )),
                     Text(
-                      'Im the BEST',
+                      'I\'M THE BEST',
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 30,
                         fontFamily: 'SansPro',
+                        letterSpacing: 2.5,
+                      ),
+                    ),
+                    Card(
+                      color: Colors.orange,
+                      margin: EdgeInsets.symmetric(
+                        vertical: 10.0,
+                        horizontal: 25.0,
+                      ),
+                      child: Row(
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.all(8.0),
+                          ),
+                          Icon(
+                            Icons.phone_android,
+                            size: 22,
+                            color: Colors.black87,
+                          ),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Text(
+                            '123-456-7890',
+                            style: TextStyle(
+                              color: Colors.black87,
+                              fontFamily: 'SansPro',
+                              fontSize: 20,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    const Divider(
+                      height: 20,
+                      thickness: 3,
+                      indent: 20,
+                      endIndent: 20,
+                      color: Colors.white70,
+                    ),
+                    Card(
+                      color: Colors.orange,
+                      margin: EdgeInsets.symmetric(
+                        vertical: 10.0,
+                        horizontal: 25.0,
+                      ),
+                      child: ListTile(
+                        leading: Icon(
+                          Icons.email_outlined,
+                          size: 22,
+                          color: Colors.black87,
+                        ),
+                        title: Text(
+                          'newGroot@test.com',
+                          style: TextStyle(
+                            color: Colors.black87,
+                            fontFamily: 'SansPro',
+                            fontSize: 20,
+                          ),
+                        ),
                       ),
                     ),
                   ],
@@ -61,13 +123,16 @@ class MyApp extends StatelessWidget {
               ),
               Container(
                 color: Colors.red,
-                child: Column(
-                  children: [
-                    ElevatedButton(
-                      onPressed: () {},
-                      child: Text("but 3"),
-                    ),
-                  ],
+                child: Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Column(
+                    children: [
+                      ElevatedButton(
+                        onPressed: () {},
+                        child: Text("but 3"),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ],
