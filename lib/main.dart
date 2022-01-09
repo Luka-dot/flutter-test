@@ -39,20 +39,24 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-          appBar: AppBar(
-            title: const Text('New App '),
-            centerTitle: true,
-            bottomOpacity: 0.8,
-          ),
-          body: Column(
-            children: [
-              Question(questionsList[questionIndex]['questionText'] as String),
-              ...(questionsList[questionIndex]['answers'] as List<String>)
-                  .map((answer) {
-                return Answer(answerQuestion, answer);
-              }).toList()
-            ],
-          )),
+        appBar: AppBar(
+          title: const Text('New App '),
+          centerTitle: true,
+          bottomOpacity: 0.8,
+        ),
+        body: questionIndex < questionsList.length
+            ? Column(
+                children: [
+                  Question(
+                      questionsList[questionIndex]['questionText'] as String),
+                  ...(questionsList[questionIndex]['answers'] as List<String>)
+                      .map((answer) {
+                    return Answer(answerQuestion, answer);
+                  }).toList()
+                ],
+              )
+            : Center(child: Text('You did it!')),
+      ),
     );
   }
 }
