@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import './question.dart';
 import './answers.dart';
+import './quiz.dart';
 
 void main() {
   runApp(MyApp());
@@ -36,6 +37,7 @@ class _MyAppState extends State<MyApp> {
     print(questionIndex);
   }
 
+  @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
@@ -45,17 +47,8 @@ class _MyAppState extends State<MyApp> {
           bottomOpacity: 0.8,
         ),
         body: questionIndex < questionsList.length
-            ? Column(
-                children: [
-                  Question(
-                      questionsList[questionIndex]['questionText'] as String),
-                  ...(questionsList[questionIndex]['answers'] as List<String>)
-                      .map((answer) {
-                    return Answer(answerQuestion, answer);
-                  }).toList()
-                ],
-              )
-            : Center(child: Text('You did it!')),
+            ? Quiz(questionsList, questionIndex, answerQuestion)
+            : const Center(child: Text('You did it!')),
       ),
     );
   }
